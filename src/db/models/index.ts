@@ -49,12 +49,7 @@ sequelize
   });
 db.Sequelize = sequelize;
 
-const client = redis.createClient({
-  socket: {
-    host: "localhost",
-    port: 6379,
-  },
-});
+const client = redis.createClient(process.env.REDIS_PORT, process.env.REDIS_HOST);
 client.on("ready", () => console.log("Redis: Connection ready redis"));
 bluebird.promisifyAll(redis);
 client.on("error", (err) => console.error("Redis: Connection error", err));
