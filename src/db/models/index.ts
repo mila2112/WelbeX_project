@@ -19,7 +19,7 @@ const sequelize = new Sequelize(
   dbConfig.name,
   dbConfig.username,
   dbConfig.password,
-  { dialect: dbConfig.dialect }
+  { dialect: dbConfig.dialect, host: dbConfig.host }
 );
 
 fs.readdirSync(__dirname)
