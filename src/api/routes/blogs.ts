@@ -4,6 +4,7 @@ import db from "../../db/models"
 import BlogsRepository from "../repositories/blog.repository";
 import BlogsController from "../controller/blogs.controller";
 import auth from "../middleweares/authentication.middlewear";
+import validate from "../middleweares/validation/validate";
 
 const blogRepository = new BlogsRepository(db.Blogs);
 
@@ -14,8 +15,8 @@ const { authenticate } = auth;
 blogRouter.get("/list", blog.list);
 
 blogRouter.use(authenticate);
-blogRouter.post("/create", blog.createBlogs);
-blogRouter.put("/update", blog.updateBlogs);
-blogRouter.delete("/delete", blog.deleteBlog);
+blogRouter.post("/create",validate('createBlogSchema'), blog.createBlogs);
+blogRouter.put("/update",validate('updateBlogSchema'), blog.updateBlogs);
+blogRouter.delete("/",validate('deleteBlogSchema'), blog.deleteBlog);
 
 export { blogRouter };

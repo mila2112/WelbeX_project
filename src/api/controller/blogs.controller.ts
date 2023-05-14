@@ -15,11 +15,11 @@ class BlogsController {
         try {
             const { id } = req.payload;
             const { text } = req.body;
-            await this.blogRepository.create({
+            const blog = await this.blogRepository.create({
               text,
               userId:id,
             });
-            return res.send("You have successfully create blog!");
+            return res.send({message:"You have successfully create blog!", blog: blog});
         } catch (err) {
             console.log("err", err);
             res.status(400).send("Something went wrong");

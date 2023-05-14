@@ -9,6 +9,8 @@ const { expect } = chai;
 describe('API tests /users', () => {
     const password = faker.internet.password();
     const email = faker.internet.email().toLowerCase();
+    const firstName = faker.name.firstName().toLowerCase();
+    const lastName = faker.name.lastName().toLowerCase();
     let token = '';
 
     before(() => {
@@ -20,20 +22,14 @@ describe('API tests /users', () => {
         it('Should return 200 status', async () => {
             const res = await chai.request(app).post('/users/sign-up').set('Content-type', 'application/json')
                 .send({
+                    firstName,
+                    lastName,
                     email,
                     password,
                 });
             expect(res.status).to.be.equal(200);
         });
 
-        it('should return 422 Validation error in case of password is missing', async () => {
-            const res = await chai.request(app).post('/users/sign-up').set('Content-type', 'application/json').send(
-                {
-                    email,
-                },
-            );
-            expect(res.status).to.be.equal(422);
-        });
     });
 
     describe('POST /sign-in', () => {

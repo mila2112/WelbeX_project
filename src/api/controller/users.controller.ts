@@ -31,7 +31,7 @@ class UserController {
         res.status(400).send("User not exists");
         return;
       }
-      const validPassword = bcrypt.compare(password, isUserExists.password);
+      const validPassword = await bcrypt.compare(password, isUserExists.password);
       if (!validPassword) {
         res.status(400).send("Credentials are invalid");
         return;
