@@ -54,7 +54,7 @@ The following endpoints are available:
 -POST /blogs/update: Update an existing blog.
 -Request body: {text}. Requires header Authorization: Bearer {token}.
 
--DELETE /blogs/: Delete a blog. 
+-DELETE /blogs/: Delete a blog.
 -Request body: {blogId}. Requires header Authorization: Bearer {token}.
 
 ## Scripts
