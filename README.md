@@ -41,20 +41,21 @@ npm run dev
 The following endpoints are available:
 
 -POST /users/sign-up: Sign up a new user.
-    -Request body: {firstName, lastName, email, password}.
+-Request body: {firstName, lastName, email, password}.
 
 -POST /users/sign-in: Sign in with an existing user. 
-    -Request body: {email, password}.
+-Request body: {email, password}.
 
 -GET /blogs/list: Get a list of blogs. 
 
 -POST /blogs/create: Create a new blog.
-    -Request body: {text}. Requires header Authorization: Bearer {token}.
+-Request body: {text}. Requires header Authorization: Bearer {token}.
 
 -POST /blogs/update: Update an existing blog.
-    -Request body: {text}. Requires header Authorization: Bearer {token}.
+-Request body: {text}. Requires header Authorization: Bearer {token}.
+
 -POST /blogs/delete: Delete a blog. 
-    -Request body: {blogId}. Requires header Authorization: Bearer {token}.
+-Request body: {blogId}. Requires header Authorization: Bearer {token}.
 
 ## Scripts
 
